@@ -6,36 +6,54 @@ import { Button } from "@/components/ui/button";
 
 const plans = [
   {
+    name: "Lite Cloud",
+    popular: false,
+    monthly: "PKR 18,500",
+    Tax: "Without any tax",
+    specs: ["RAM: 8 GB", "Disk: 150 GB NVMe", "CPU: 4 vCPU Cores"],
+    desc: "",
+  },
+  {
     name: "Starter VPS",
     popular: false,
-    monthly: "[Price]",
-    yearly: "[Price]",
-    specs: ["RAM: [RAM]", "Disk: [HardDisk]", "CPU: [CPU]"],
-    desc: "[Description]",
+    monthly: "PKR 29,500",
+    Tax: "With tax",
+    specs: [
+      "RAM: 16GB",
+      "Disk: 200GB SAS Storage",
+      "CPU: Intel Xeon E5 2650 v2 with 4Core processor",
+    ],
+    Raid: "Hardware Dell PERC H710 (Raid 0/1/5)",
+    Limit: "Maximum for 10 Users",
+    desc: "Ideal for startup bussiness with lower transactions and reporting",
   },
   {
     name: "Business VPS",
     popular: true,
-    monthly: "[Price]",
-    yearly: "[Price]",
-    specs: ["RAM: [RAM]", "Disk: [HardDisk]", "CPU: [CPU]"],
-    desc: "[Description]",
+    monthly: "PKR 44,300",
+    Tax: "With tax",
+    specs: [
+      "RAM: 32GB",
+      "Disk: 200GB SAS Storage",
+      "CPU: Intel Xeon E5 2650 v2 with 4Core processor",
+    ],
+    Raid: "Hardware Dell PERC H710 (Raid 0/1/5)",
+    Limit: "For Unlimited Users",
+    desc: "Ideal for small bussiness lower with medium hits",
   },
   {
-    name: "Professional VPS",
+    name: "Enterprise Ultra VPS",
     popular: false,
-    monthly: "[Price]",
-    yearly: "[Price]",
-    specs: ["RAM: [RAM]", "Disk: [HardDisk]", "CPU: [CPU]"],
-    desc: "[Description]",
-  },
-  {
-    name: "Enterprise VPS",
-    popular: false,
-    monthly: "[Price]",
-    yearly: "[Price]",
-    specs: ["RAM: [RAM]", "Disk: [HardDisk]", "CPU: [CPU]"],
-    desc: "[Description]",
+    monthly: "PKR 54,500",
+    Tax: "With tax",
+    specs: [
+      "RAM: 32GB",
+      "Disk: 500GB SAS Storage",
+      "CPU: Intel Xeon E5 2650 v2 with 4Core processor",
+    ],
+    Raid: "Hardware Dell PERC H710 (Raid 0/1/5)",
+    Limit: "For Unlimited Users",
+    desc: "Ideal for large scale transaction bussiness with unlimited users",
   },
 ];
 
@@ -58,28 +76,14 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* toggle */}
+        {/* pricing label */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white/5 border border-white/10 rounded-full p-1 flex">
-            <button
-              onClick={() => setYearly(false)}
-              className={`px-5 py-2 rounded-full text-sm ${
-                !yearly ? "bg-white text-black" : "text-gray-300"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setYearly(true)}
-              className={`px-5 py-2 rounded-full text-sm ${
-                yearly ? "bg-white text-black" : "text-gray-300"
-              }`}
-            >
-              Yearly
-            </button>
+          <div className="bg-white/5 border border-white/10 rounded-full px-6 py-2">
+            <span className="text-sm text-white font-medium">
+              Monthly VPS Pricing
+            </span>
           </div>
         </div>
-
         {/* cards */}
         <div className="grid md:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
@@ -112,22 +116,29 @@ export default function Pricing() {
                 <h3 className="text-lg font-semibold">{plan.name}</h3>
 
                 {/* price */}
-                <p className="text-3xl font-bold mt-4">
-                  {yearly ? plan.yearly : plan.monthly}
-                </p>
+                <p className="text-3xl font-bold mt-4">{plan.monthly}</p>
 
+                <p className="text-sm text-gray-400 mt-4">{plan.Tax}</p>
                 {/* specs */}
                 <div className="mt-6 space-y-2 text-sm text-gray-300">
                   {plan.specs.map((s, idx) => (
                     <p key={idx}>{s}</p>
                   ))}
                 </div>
+                <p className="text-sm text-gray-400 mt-4">{plan.Raid}</p>
+                <p className="text-sm text-gray-400 mt-4">{plan.Limit}</p>
 
                 {/* description */}
                 <p className="text-sm text-gray-400 mt-4">{plan.desc}</p>
 
                 {/* button */}
                 <Button
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/923485587827?text=Hello%20I%20want%20to%20purchase%20a%20VPS%20plan",
+                      "_blank",
+                    )
+                  }
                   className={`w-full mt-6 ${
                     plan.popular
                       ? "bg-white text-black hover:bg-gray-200"
