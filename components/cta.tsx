@@ -50,7 +50,7 @@ export default function Contact() {
               </div>
 
               <div className="text-left">
-                <p className="text-xs text-gray-400">WhatsApp Support</p>
+                <p className="text-xs text-gray-400">For Contact</p>
                 <p className="font-medium text-white">03485587827</p>
               </div>
             </Link>

@@ -9,50 +9,56 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#070A12] text-white"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#070A12] text-white  pt-28 pb-16 md:py-0"
     >
       {/* consistent brand glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-[rgba(51,6,65,0.35)] via-[rgba(20,10,30,0.2)] to-black" />
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center z-10">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2  gap-14 md:gap-10 items-center z-10">
         {/* text */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="order-2 md:order-1 text-center md:text-left"
         >
-          <h1 className="text-4xl font-semibold tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-4xl font-semibold tracking-tight leading-tight">
             High-Performance Cloud VPS for Modern Business Infrastructure
           </h1>
 
-          <p className="text-gray-400 mt-5 max-w-xl leading-relaxed">
+          <p className="text-gray-400 mt-5 max-w-xl leading-relaxed mx-auto md:mx-0">
             Deploy secure, scalable, and enterprise-grade cloud VPS solutions
             designed for ERP systems, POS platforms, financial applications, and
             remote business operations.
           </p>
 
           {/* benefits */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-            <div className="flex items-center gap-3">
+          <div
+            className=" mt-8
+    grid grid-cols-1 sm:grid-cols-2
+    gap-4 text-sm
+    max-w-md mx-auto md:max-w-none "
+          >
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <div className="w-2 h-2 rounded-full bg-purple-700" />
               <span className="text-gray-300">
                 Secure Enterprise Infrastructure
               </span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <div className="w-2 h-2 rounded-full bg-purple-700" />
               <span className="text-gray-300">
                 High-Speed Cloud Performance
               </span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <div className="w-2 h-2 rounded-full bg-purple-700" />
               <span className="text-gray-300">Remote Access From Anywhere</span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <div className="w-2 h-2 rounded-full bg-purple-700" />
               <span className="text-gray-300">
                 Scalable VPS Hosting Solutions
@@ -60,7 +66,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-4 mt-6 items-center justify-center md:justify-start">
             {/* Get Started → Contact page */}
 
             <Button
@@ -106,7 +112,7 @@ export default function Hero() {
         </motion.div>
 
         {/* animated “server” block */}
-        <div className="pt-10">
+        <div className="order-1 md:order-2 pt-4 md:pt-10 flex justify-center">
           <motion.div
             className="relative w-full max-w-md z-10"
             animate={{
@@ -126,7 +132,7 @@ export default function Hero() {
               width={500} // Set appropriate dimensions
               height={500}
               priority // Good for hero images
-              className="w-full h-auto"
+              className="w-[85%] sm:w-full max-w-xs sm:max-w-md h-auto mx-auto"
             />
           </motion.div>
         </div>
