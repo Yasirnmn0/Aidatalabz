@@ -9,7 +9,7 @@ const plans = [
     name: "Lite Cloud",
     popular: false,
     monthly: "PKR 18,500",
-    Tax: "Without any tax",
+    Tax: "",
     specs: ["RAM: 8 GB", "Disk: 150 GB NVMe", "CPU: 4 vCPU Cores"],
     desc: "",
   },
@@ -17,43 +17,43 @@ const plans = [
     name: "Starter VPS",
     popular: false,
     monthly: "PKR 29,500",
-    Tax: "With tax",
+    Tax: "+ Tax",
     specs: [
       "RAM: 16GB",
       "Disk: 200GB SAS Storage",
       "CPU: Intel Xeon E5 2650 v2 with 4Core processor",
     ],
-    Raid: "Hardware Dell PERC H710 (Raid 0/1/5)",
-    Limit: "Maximum for 10 Users",
-    desc: "Ideal for startup bussiness with lower transactions and reporting",
+    Raid: "Raid: Hardware Dell PERC H710 (Raid 0/1/5)",
+    Limit: "Limit: Maximum for 10 Users",
+    desc: "Desc: Ideal for startup bussiness with lower transactions and reporting",
   },
   {
     name: "Business VPS",
     popular: true,
     monthly: "PKR 44,300",
-    Tax: "With tax",
+    Tax: "+ Tax",
     specs: [
       "RAM: 32GB",
       "Disk: 200GB SAS Storage",
       "CPU: Intel Xeon E5 2650 v2 with 4Core processor",
     ],
-    Raid: "Hardware Dell PERC H710 (Raid 0/1/5)",
-    Limit: "For Unlimited Users",
-    desc: "Ideal for small bussiness lower with medium hits",
+    Raid: "Raid: Hardware Dell PERC H710 (Raid 0/1/5)",
+    Limit: "Limit: For Unlimited Users",
+    desc: "Desc: Ideal for small bussiness lower with medium hits",
   },
   {
     name: "Enterprise Ultra VPS",
     popular: false,
     monthly: "PKR 54,500",
-    Tax: "With tax",
+    Tax: "+ Tax",
     specs: [
       "RAM: 32GB",
       "Disk: 500GB SAS Storage",
       "CPU: Intel Xeon E5 2650 v2 with 4Core processor",
     ],
-    Raid: "Hardware Dell PERC H710 (Raid 0/1/5)",
-    Limit: "For Unlimited Users",
-    desc: "Ideal for large scale transaction bussiness with unlimited users",
+    Raid: "Raid: Hardware Dell PERC H710 (Raid 0/1/5)",
+    Limit: "Limit: For Unlimited Users",
+    desc: "Desc: Ideal for large scale transaction bussiness with unlimited users",
   },
 ];
 
@@ -116,9 +116,13 @@ export default function Pricing() {
                 <h3 className="text-lg font-semibold">{plan.name}</h3>
 
                 {/* price */}
-                <p className="text-3xl font-bold mt-4">{plan.monthly}</p>
+                <p>
+                  <span className="text-3xl font-bold mt-4">
+                    {plan.monthly}{" "}
+                  </span>{" "}
+                  <span>{plan.Tax}</span>
+                </p>
 
-                <p className="text-sm text-gray-400 mt-4">{plan.Tax}</p>
                 {/* specs */}
                 <div className="mt-6 space-y-2 text-sm text-gray-300">
                   {plan.specs.map((s, idx) => (
