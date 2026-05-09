@@ -12,7 +12,7 @@ const solutions = [
   {
     icon: BarChart3,
     title: "Data Analytics",
-    desc: "Transform ERP, finance, and retail data into actionable business insights.",
+    desc: "Transform ERP, finance, and retail data into actionable business insights and growth.",
   },
   {
     icon: Link2,

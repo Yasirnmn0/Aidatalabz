@@ -11,7 +11,9 @@ const plans = [
     monthly: "PKR 18,500",
     Tax: "",
     specs: ["RAM: 8 GB", "Disk: 150 GB NVMe", "CPU: 4 vCPU Cores"],
-    desc: "",
+    Raid: "Raid:                                                                           ",
+    Limit: "Limit: ",
+    desc: "Desc: ",
   },
   {
     name: "Starter VPS",
@@ -99,7 +101,7 @@ export default function Pricing() {
 
               {/* card */}
               <div
-                className={`relative h-full p-6 rounded-2xl border ${
+                className={`relative h-full p-6 rounded-2xl border flex flex-col ${
                   plan.popular
                     ? "border-purple-500 bg-white/10"
                     : "border-white/10 bg-white/5"
@@ -112,37 +114,40 @@ export default function Pricing() {
                   </div>
                 )}
 
-                {/* name */}
-                <h3 className="text-lg font-semibold">{plan.name}</h3>
+                <div className="flex-1">
+                  {/* name */}
+                  <h3 className="text-lg font-semibold">{plan.name}</h3>
 
-                {/* price */}
-                <p>
-                  <span className="text-3xl font-bold mt-4">
-                    {plan.monthly}{" "}
-                  </span>{" "}
-                  <span>{plan.Tax}</span>
-                </p>
+                  {/* price */}
+                  <p>
+                    <span className="text-3xl font-bold mt-4">
+                      {plan.monthly}{" "}
+                    </span>{" "}
+                    <span>{plan.Tax}</span>
+                  </p>
 
-                {/* specs */}
-                <div className="mt-6 space-y-2 text-sm text-gray-300">
-                  {plan.specs.map((s, idx) => (
-                    <p key={idx}>{s}</p>
-                  ))}
+                  {/* specs */}
+                  <div className="mt-6 space-y-2 text-sm text-gray-300">
+                    {plan.specs.map((s, idx) => (
+                      <p key={idx}>{s}</p>
+                    ))}
+                  </div>
+                  <p className="text-sm text-gray-400 mt-4">{plan.Raid}</p>
+                  <p className="text-sm text-gray-400 mt-4">{plan.Limit}</p>
+
+                  {/* description */}
+                  <p className="text-sm text-gray-400 mt-4">{plan.desc}</p>
                 </div>
-                <p className="text-sm text-gray-400 mt-4">{plan.Raid}</p>
-                <p className="text-sm text-gray-400 mt-4">{plan.Limit}</p>
-
-                {/* description */}
-                <p className="text-sm text-gray-400 mt-4">{plan.desc}</p>
-
                 {/* button */}
                 <Button
-                  onClick={() =>
+                  onClick={() => {
+                    const message = `Hello, I want to purchase the ${plan.name} package.`;
+
                     window.open(
-                      "https://wa.me/923485587827?text=Hello%20I%20want%20to%20purchase%20a%20VPS%20plan",
+                      `https://wa.me/923485587827?text=${encodeURIComponent(message)}`,
                       "_blank",
-                    )
-                  }
+                    );
+                  }}
                   className={`w-full mt-6 ${
                     plan.popular
                       ? "bg-white text-black hover:bg-gray-200"
